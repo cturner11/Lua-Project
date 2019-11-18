@@ -1,0 +1,15 @@
+--currently disabled
+
+local camera = game.Workspace.CurrentCamera
+local part = game.Workspace.Camera
+
+camera.CameraType = 'Scriptable'
+camera.CameraSubject = part
+wait(0.5)
+part.CFrame = part.CFrame * CFrame.fromEulerAnglesXYZ(0,0,0)
+game.Players.PlayerAdded:Connect(function(plyr)
+	wait(2)
+	plyr.CameraMaxZoomDistance = 10
+	plyr.CameraMinZoomDistance = 10
+	
+end)
