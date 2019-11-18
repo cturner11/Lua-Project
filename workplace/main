@@ -1,0 +1,76 @@
+--creating the different objects in the workspace
+hollowOrb = game.Workspace.hollowOrb
+testRamp = game.Workspace.testRamp
+square = game.Workspace.square
+blade = game.Workspace.blade
+playerBox = game.Workspace.playerBox
+
+--setting the skins for the objects
+hollowOrb.Material = Enum.Material.Glass
+testRamp.Material = Enum.Material.Marble
+square.Material = Enum.Material.Marble
+blade.Material = Enum.Material.ForceField
+playerBox.Material = Enum.Material.Glass
+
+--setting the size for the objects
+wait(1)
+hollowOrb.Size = Vector3.new(9,9,9)
+hollowOrb.Massless = true
+
+repeat wait() until #game.Players:GetPlayers() >= 1
+hollowOrb:SetNetworkOwner(game.Players:GetPlayers()[1])
+
+--anchoring the objects to the map so they cant move if hit
+blade.Anchored=true
+testRamp.Anchored=true
+square.Anchored=true
+playerBox.Anchored=true
+
+--this function allows the blade object to spin
+function spinBlade()
+	x=0
+	while x < 100000
+	do
+		blade.CFrame = blade.CFrame * CFrame.Angles(0,math.rad(10),0)
+		x = x+1
+		wait(0.0001)
+	end
+end
+
+--this function allow the two peices that make the ramp move up and down
+function moveRamp()
+	i=1
+	while(true)
+	do
+	
+		while(i<=40)
+		do
+			if(i<=40)
+			then
+				square.Size = Vector3.new(20,i+2,15)
+				testRamp.Size=Vector3.new(20,i,50)
+				square.Position = Vector3.new(0,0.5+(i/2),-19.5)				
+				testRamp.Position = Vector3.new(0,1.5+(i/2),-52)
+				wait(.001)
+				i=i+1
+			end	
+		end
+		while(i>=1)
+		do
+			if(i>=1)
+			then
+				square.Size = Vector3.new(20,i+2,15)
+				testRamp.Size=Vector3.new(20,i,50)
+				square.Position = Vector3.new(0,0.5+(i/2),-19.5)				
+				testRamp.Position = Vector3.new(0,1.5+(i/2),-52)
+				wait(.001)
+				i=i-1
+			end
+		end
+	end
+end
+
+
+--running the functons at the same time
+spawn(spinBlade)
+spawn(moveRamp)
