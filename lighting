@@ -1,0 +1,7 @@
+print("Hello world!")
+x = 540
+while true do
+	game.Lighting:SetMinutesAfterMidnight(x)
+	wait(1)
+	x = x + 2
+end
