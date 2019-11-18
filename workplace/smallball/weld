@@ -1,0 +1,14 @@
+script.Parent.Touched:connect(function(hit)
+	humanoid = hit.Parent:findFirstChild("Humanoid")
+	if(humanoid)then
+		head = hit.Parent.Head
+		script.Parent.CFrame=head.CFrame * CFrame.new (0,5,0)
+		weld = Instance.new("Weld")
+		weld.Part0 = head
+		weld.C0 = head.CFrame:inverse()
+		weld.Part1 = script.Parent
+		weld.C1 = script.Parent.CFrame:Inverse()
+		weld.Parent = script.Parent
+		script.Parent.Anchored = false
+	end
+end)
