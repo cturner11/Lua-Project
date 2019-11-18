@@ -1,0 +1,44 @@
+local Player = game.Players.LocalPlayer
+
+repeat wait() until Player and Player.Character
+
+local camera = game.Workspace.CurrentCamera
+camera.FieldOfView = 20
+local part = game.Workspace:WaitForChild("hollowOrb")
+
+camera.CameraType = Enum.CameraType.Scriptable
+camera.CameraSubject = part
+
+wait(0.5)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	camera.CFrame = CFrame.new((CFrame.new(part.CFrame.p) * CFrame.new(0, 10, 50)).p, part.CFrame.p)
+end)
+
+local UIS = game:GetService("UserInputService")
+local BodyVelocity = Instance.new("BodyVelocity")
+BodyVelocity.MaxForce = Vector3.new(math.huge, 0, math.huge)
+BodyVelocity.Velocity = Vector3.new()
+BodyVelocity.Parent = part
+
+local Speed = 50
+
+UIS.InputBegan:Connect(function(Input, Process)
+	if not Process and Input.UserInputType == Enum.UserInputType.Keyboard then
+		if Input.KeyCode == Enum.KeyCode.W then
+			BodyVelocity.Velocity = BodyVelocity.Velocity + Vector3.new(0, 0, -Speed)			
+		elseif Input.KeyCode == Enum.KeyCode.S then
+			BodyVelocity.Velocity = BodyVelocity.Velocity + Vector3.new(0, 0, Speed)
+		elseif Input.KeyCode == Enum.KeyCode.A then
+			BodyVelocity.Velocity = BodyVelocity.Velocity + Vector3.new(-Speed, 0, 0)			
+		elseif Input.KeyCode == Enum.KeyCode.D then
+			BodyVelocity.Velocity = BodyVelocity.Velocity + Vector3.new(Speed, 0, 0)
+		end
+	end	
+end)
+
+UIS.InputEnded:Connect(function(Input, Process)
+	if not Process and Input.UserInputType == Enum.UserInputType.Keyboard then
+		--BodyVelocity.Velocity = Vector3.new()
+	end
+end)
