@@ -1,3 +1,5 @@
+	--currently disabled--	
+	
 	--setting keypress to register the keyboard
 local keypress = game.Players.LocalPlayer:GetMouse()
 	--running the thread that detects a key being pressed down
