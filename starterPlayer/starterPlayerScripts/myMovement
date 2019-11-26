@@ -1,39 +1,116 @@
-	--currently disabled--	
+	--currently enabled--
 	
-	--setting keypress to register the keyboard
-local keypress = game.Players.LocalPlayer:GetMouse()
-	--running the thread that detects a key being pressed down
-keypress.KeyDown:connect(function(key)
-	flag = true
-		--move forward
-	while(key == "w" and flag == true)do
-		game.Workspace.hollowOrb.Velocity = Vector3.new(0,0,-20)
-		print(key)
-		wait(0.0001)
-	end
-		--move backward
-	while(key == "s" and flag == true)do
-		game.Workspace.hollowOrb.Velocity = Vector3.new(0,0,20)
-		print(key)
-		wait(0.0001)
-	end
-		--move right
-	while(key == "d" and flag == true)do
-		game.Workspace.hollowOrb.Velocity = Vector3.new(20,0,0)
-		print(key)
-		wait(0.0001)
-	end
-		--move left
-	while(key == "a" and flag == true)do
-		game.Workspace.hollowOrb.Velocity = Vector3.new(-20,0,0)
-		print(key)
-		wait(0.0001)
-	end
+	--locking the players camera and setting it to the orb
+local camera = game.Workspace.CurrentCamera
+camera.FieldOfView = 20
+local part = game.Workspace:WaitForChild("hollowOrb")
+
+camera.CameraType = Enum.CameraType.Scriptable
+camera.CameraSubject = part
+Speed = 50
+
+wait(0.5)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	camera.CFrame = CFrame.new((CFrame.new(part.CFrame.p) * CFrame.new(0, 10, 50)).p, part.CFrame.p)
 end)
-	--running the thread that detects a key getting de-pressed
-keypress.KeyUp:connect(function(key)
-	if(key=="w"or key=="a"or key=="s"or key=="d")then
-		print(key,"up")
-		flag = false
-	end
-end)
+
+	--creating all the functions for movement
+function moveUp()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyDown:connect(function(key)
+		flagw = true
+		while(key == "w" and flagw == true)do
+			game.Workspace.hollowOrb.Velocity = Vector3.new(0,0,-Speed)
+			--print(key)
+			wait(0.0001)
+		end
+	end)
+end
+
+function moveDown()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyDown:connect(function(key)
+		flags = true
+		while(key == "s" and flags == true)do
+			game.Workspace.hollowOrb.Velocity = Vector3.new(0,0,Speed)
+			--print(key)
+			wait(0.0001)
+		end
+	end)
+end
+
+function moveRight()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyDown:connect(function(key)
+		flagd = true
+		while(key == "d" and flagd == true)do
+			game.Workspace.hollowOrb.Velocity = Vector3.new(Speed,0,0)
+			--print(key)
+			wait(0.0001)
+		end
+	end)
+end
+
+function moveLeft()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyDown:connect(function(key)
+		flaga = true
+		while(key == "a" and flaga == true)do
+			game.Workspace.hollowOrb.Velocity = Vector3.new(-Speed,0,0)
+			--print(key)
+			wait(0.0001)
+		end
+	end)
+end
+
+	--creating all the functions that stop movemen
+function stopUp()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyUp:connect(function(key)
+		if(key=="w")then 
+			--print(key,"up")
+			flagw = false
+		end
+	end)
+end
+
+function stopDown()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyUp:connect(function(key)
+		if(key=="s")then 
+			--print(key,"up")
+			flags = false
+		end
+	end)
+end
+
+function stopRight()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyUp:connect(function(key)
+		if(key=="d")then 
+			--print(key,"up")
+			flagd = false
+		end
+	end)
+end
+
+function stopLeft()
+	local keypress = game.Players.LocalPlayer:getMouse()
+	keypress.KeyUp:connect(function(key)
+		if(key=="a")then 
+			--print(key,"up")
+			flaga = false
+		end
+	end)
+end
+
+	--running all the functions at the same time
+spawn(moveUp)
+spawn(moveDown)
+spawn(moveRight)
+spawn(moveLeft)
+spawn(stopUp)
+spawn(stopDown)
+spawn(stopRight)
+spawn(stopLeft)
