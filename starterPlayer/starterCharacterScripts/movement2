@@ -1,3 +1,5 @@
+	--currently disabled--
+
 local Player = game.Players.LocalPlayer
 
 repeat wait() until Player and Player.Character
