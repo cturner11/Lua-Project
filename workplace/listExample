@@ -1,0 +1,8 @@
+list = {"first","second","third","fourth","fifth"}
+	
+	--lists start at 1 not 0
+	--if you point at a spot before or after the 
+	--list it doesn't explode, just produces a nil value
+for i=0,6 do
+	print(list[i])
+end
