@@ -1,0 +1,282 @@
+workspace.Baseplate.Position = Vector3.new(190,-10,0)
+
+WallA = Instance.new("Part",workspace)
+WallA.Name = "WallA"
+WallA.Anchored = true
+WallA.Position = Vector3.new(189,150,255)
+WallA.Size = Vector3.new(510,300,2)
+WallA.Transparency = 1
+
+WallB = Instance.new("Part", workspace)
+WallB.Name = "WallB"
+WallB.Anchored = true
+WallB.Position = Vector3.new(-65,150,-1)
+WallB.Size = Vector3.new(2,300,510)
+WallB.Transparency = 1
+
+WallC = Instance.new("Part", workspace)
+WallC.Name = "WallC"
+WallC.Anchored = true
+WallC.Position = Vector3.new(191,150,-255)
+WallC.Size = Vector3.new(510,300,2)
+WallC.Transparency = 1
+
+WallD = Instance.new("Part", workspace)
+WallD.Name = "WallD"
+WallD.Anchored = true
+WallD.Position = Vector3.new(445, 150,1)
+WallD.Size = Vector3.new(2,300,510)
+WallD.Transparency = 1
+
+Wall1A = Instance.new("Part", workspace)
+Wall1A.Name = "Wall1A"
+Wall1A.Anchored = true
+Wall1A.Position = Vector3.new(200,0.5,-150)
+Wall1A.Size = Vector3.new(490,20,30) 
+
+Wall1B = Instance.new("Part", workspace)
+Wall1B.Name = "Wall1B"
+Wall1B.Anchored = true
+Wall1B.Position = Vector3.new(180,0.5,-40)
+Wall1B.Size = Vector3.new(490,20,30)
+
+Wall1C = Instance.new("Part", workspace)
+Wall1C.Name = "Wall1C"
+Wall1C.Anchored = true
+Wall1C.Position = Vector3.new(180,0.5,40)
+Wall1C.Size = Vector3.new(490,20,30)
+
+Wall1D = Instance.new("Part", workspace)
+Wall1D.Name = "Wall1D"
+Wall1D.Anchored = true
+Wall1D.Position = Vector3.new(200,0.5,150)
+Wall1D.Size = Vector3.new(490,20,30)
+
+Level2A = Instance.new("Part", workspace)
+Level2A.Name = "Level2A"
+Level2A.Anchored = true
+Level2A.Position = Vector3.new(412,100,-22)
+Level2A.Size = Vector3.new(70,2,512)
+Level2A.Transparency = 0.5
+Level2A.Material = "Glass"
+
+Finish = Instance.new("Part", workspace)
+Finish.Name = "Finish"
+Finish.Anchored = true
+Finish.Position = Vector3.new(224,298.5,-187)
+Finish.Size = Vector3.new(40,1,40)
+
+ElevatorA = Instance.new("Part", workspace)
+ElevatorA.Name = "ElevatorA"
+ElevatorA.Anchored = true
+ElevatorA.Position = Vector3.new(386,0.5,244)
+ElevatorA.Size = Vector3.new(18,0.5,18)
+function moveElevatorA()
+	x = 1
+	i = 1
+	while x < 1000000 do
+		while i <= 100 do
+			if i <= 100 then
+				ElevatorA.Position = Vector3.new(386,i + 0.5, 244)
+				wait(0.05)
+				i = i + 1
+			end
+		end
+		wait(7)
+		while i >= 1 do
+			if i >= 1 then
+				ElevatorA.Position = Vector3.new(386, i + 0.5, 244)
+				wait(0.05)
+				i = i - 1
+			end
+		end
+		wait(7)
+	end
+	x = x + 1
+end
+
+ElevatorB = Instance.new("Part",workspace)
+ElevatorB.Name = "ElevatorB"
+ElevatorB.Anchored = true
+ElevatorB.Position = Vector3.new(366,100.5,-217)
+ElevatorB.Size = Vector3.new(20,1,20)
+function moveElevatorB()
+	x = 1
+	y = 1
+	while x < 1000000 do
+		while y <= 100 do
+			if y <= 100 then
+				ElevatorB.Position = Vector3.new(366,100.5 + y,-217)
+				wait(.05)
+				y = y + 1
+			end
+		end
+		wait(7)
+		while y >= 1 do
+			if y >= 1 then
+				ElevatorB.Position = Vector3.new(366,100.5 + y, -217)
+				wait(0.05)
+				y = y - 1
+			end
+		end
+		wait(7)
+	end
+	x = x + 1
+end
+
+HammerA = Instance.new("Part", workspace)
+HammerA.Name = "HammerA"
+HammerA.Anchored = true
+HammerA.Position = Vector3.new(381,126,82)
+HammerA.Size = Vector3.new(42,50,102)
+function moveHammerA()
+	x = 1
+	j = 1
+	while x < 1000000 do
+		while j <= 42 do
+			if j <= 42 then
+				HammerA.Position = Vector3.new(381 + j,126, 82)
+				wait(.01)
+				print(j)
+				j = j + 1
+			end
+		end
+		wait(4)
+		while j >= 1 do
+			if j >= 1 then
+				HammerA.Position = Vector3.new(381 + j,126, 82)
+				wait(.1)
+				print(j)
+				j = j - 1
+			end
+		end
+	end
+	x = x + 1
+end
+
+HammerB = Instance.new("Part",workspace)
+HammerB.Name = "HammerB"
+HammerB.Anchored = true
+HammerB.Position = Vector3.new(381,126,-122)
+HammerB.Size = Vector3.new(42,50,102)
+function moveHammerB()
+	x = 1
+	k = 1
+	while x < 1000000 do
+		while k <= 42 do
+			if k <= 42 then
+				HammerB.Position = Vector3.new(381 + k,126, -122)
+				wait(.01)
+				k = k + 1
+			end
+		end
+		wait(8)
+		while k >= 1 do
+			if k >= 1 then
+				HammerB.Position = Vector3.new(381 + k,126, -122)
+				wait(.01)
+				k = k - 1
+			end
+		end
+	end
+	x = x + 1
+end
+
+HammerC = Instance.new("Part", workspace)
+HammerC.Name = "HammerC"
+HammerC.Anchored = true
+HammerC.Position = Vector3.new(381,126,-20)
+HammerC.Size = Vector3.new(42,50,102)
+function moveHammerC()
+	x = 1
+	m = 1
+	while x < 1000000 do
+		while m <= 42 do
+			if m <= 42 then
+				HammerC.Position = Vector3.new(381 + m,126, -20)
+				wait(.01)
+				m = m + 1
+			end
+		end
+		wait(6)
+		while m >= 1 do
+			if m >= 1 then
+				HammerC.Position = Vector3.new(381 + m,126, -20)
+				wait(.005)
+				m = m - 1
+			end
+		end
+	end
+	x = x + 1
+end
+
+PlatformA = Instance.new("Part", workspace)
+PlatformA.Name = "PlatformA"
+PlatformA.Anchored = true
+PlatformA.Position = Vector3.new(246,199,-217)
+PlatformA.Size = Vector3.new(20,1,20)
+function movePlatformA()
+	x = 1
+	local n = 1
+	while x < 1000000 do
+		while n <= 100 do
+			if n <= 100 then 
+				PlatformA.Position = Vector3.new(246 + n,199,-217)
+				wait(.05)
+				n = n + 1
+			end
+		end
+		wait(7) 
+		while (n>=1) do
+			if n>= 1 then 
+				PlatformA.Position = Vector3.new(246 + n, 199,-217)
+				wait(.05)
+				
+				n = n-1
+			end 
+		end
+		wait(7) 
+	end
+	x = x + 1
+end
+
+PlatformB = Instance.new("Part",workspace)
+PlatformB.Name = "PlatformB"
+PlatformB.Anchored = true
+PlatformB.Position = Vector3.new(226,199,-217)
+PlatformB.Size = Vector3.new(20,1,20)
+function movePlatformB()
+	x = 1
+	local p = 1
+	while x < 1000000 do
+		while p <= 100 do
+			if p <= 100 then 
+				PlatformB.Position = Vector3.new(226,199 + p,-217)
+				wait(.05)
+				
+				p = p + 1
+			end
+		end
+		wait(7) 
+		while (p>=1)
+		do
+			if p>= 1
+			then 
+				PlatformB.Position = Vector3.new(226, p + 199,-217)
+				wait(.05)
+				
+				p = p-1
+			end 
+		end
+		wait(7) 
+	end
+	x = x + 1
+end
+spawn(moveHammerA)
+spawn(moveHammerB)
+spawn(moveHammerC)
+spawn(moveElevatorA)
+spawn(moveElevatorB)
+spawn(movePlatformA)
+spawn(movePlatformB)
+
