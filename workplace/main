@@ -1,16 +1,16 @@
 --creating the different objects in the workspace
 hollowOrb = game.Workspace.hollowOrb
-testRamp = game.Workspace.testRamp
-square = game.Workspace.square
-blade = game.Workspace.blade
-playerBox = game.Workspace.playerBox
+--testRamp = game.Workspace.testRamp
+--square = game.Workspace.square
+--blade = game.Workspace.blade
+--playerBox = game.Workspace.playerBox
 
 --setting the skins for the objects
 hollowOrb.Material = Enum.Material.Glass
-testRamp.Material = Enum.Material.Marble
-square.Material = Enum.Material.Marble
-blade.Material = Enum.Material.ForceField
-playerBox.Material = Enum.Material.Glass
+--testRamp.Material = Enum.Material.Marble
+--square.Material = Enum.Material.Marble
+--blade.Material = Enum.Material.ForceField
+--playerBox.Material = Enum.Material.Glass
 
 --setting the size for the objects
 wait(1)
@@ -21,13 +21,13 @@ repeat wait() until #game.Players:GetPlayers() >= 1
 hollowOrb:SetNetworkOwner(game.Players:GetPlayers()[1])
 
 --anchoring the objects to the map so they cant move if hit
-blade.Anchored=true
-testRamp.Anchored=true
-square.Anchored=true
-playerBox.Anchored=true
+--blade.Anchored=true
+--testRamp.Anchored=true
+--square.Anchored=true
+--playerBox.Anchored=true
 
 --this function allows the blade object to spin
-function spinBlade()
+--[[function spinBlade()
 	x=0
 	while x < 100000
 	do
@@ -73,4 +73,4 @@ end
 
 --running the functons at the same time
 spawn(spinBlade)
-spawn(moveRamp)
+spawn(moveRamp)]]--
